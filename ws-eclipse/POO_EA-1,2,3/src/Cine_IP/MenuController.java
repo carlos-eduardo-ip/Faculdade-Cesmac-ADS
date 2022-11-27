@@ -27,40 +27,14 @@ public class MenuController {
         if (selecaoIngresso == 1) {
 
             cliente = new ingressoVIP();
-            Filmes.getfilmes(true);
-
-            System.out.print("Selecione o filme pela númeração dele: ");
-            Filmes.setNumfilme(ler.nextInt());
-
-            System.out.print("\nAgora vamos escolher a quantidade de ingressos :D\n");
-            System.out.print("\nDigite a quantidade ingressos VIP: ");
-            ingressoVIP.setTotalIngressos(ler.nextInt());
+            ((ingressoVIP) cliente).selecaoFilmesVIP(true);
 
         }else{
 
             cliente = new Ingresso();
-            Filmes.getfilmes(false);
+            cliente.selecaoFilmes2D(false);
 
-            System.out.print("Selecione o filme pela númeração dele: ");
-            Filmes.setNumfilme(ler.nextInt());
-
-            System.out.print("\nAgora vamos escolher a quantidade de ingressos :D\n");
-            System.out.println("Sendo inteiro R$ 32 e meia R$ 16");
-            System.out.print("\nDigite a quantidade ingressos inteiro: ");
-            cliente.setingressosInteiro(ler.nextInt());
-
-            System.out.print("Digite a quantidade ingressos meia: ");
-            cliente.setingressosMeia(ler.nextInt());
         }
-
-        Filmes.getsessoes();
-        System.out.print("Agora escolha o número da sessão: ");
-        Filmes.setNumsessoes(ler.nextInt());
-
-        System.out.println("\nResumo do pedido: ");
-        System.out.println("\nFilme escolhido: ");
-        Filmes.getfilme();
-        System.out.println("\nA sua sessão será a " + Filmes.getsessao());
 
         cliente.acessoCliente();
 
@@ -70,6 +44,7 @@ public class MenuController {
 
         System.out.println("Seja Bem Vindo ao Cine IP!\n");
         System.out.print("Antes de tudo, vamos nos apresentar\n" + "Eu me chamo Bot IP e qual é o seu nome?  ");
+
         Nome = ler.nextLine();
 
 
@@ -108,5 +83,4 @@ public class MenuController {
             }
         } while (opcao_Menu != 4);
     }
-
 }

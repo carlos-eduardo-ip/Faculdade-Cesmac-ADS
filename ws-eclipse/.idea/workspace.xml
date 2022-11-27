@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c6927e4-95b1-49b1-9bbb-79ea8530060a" name="Changes" comment="Trabalhos de POO - JAVA" />
+    <list default="true" id="8c6927e4-95b1-49b1-9bbb-79ea8530060a" name="Changes" comment="Trabalhos de POO - JAVA">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO_EA-1,2,3/src/Cine_IP/Ingresso.java" beforeDir="false" afterPath="$PROJECT_DIR$/POO_EA-1,2,3/src/Cine_IP/Ingresso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO_EA-1,2,3/src/Cine_IP/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/POO_EA-1,2,3/src/Cine_IP/MenuController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +13,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -23,7 +28,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/ADS/Faculdade Cesmac - ADS/ws-eclipse"
+    "last_opened_file_path": "E:/ADS/Faculdade Cesmac - ADS/ws-eclipse/POO_EA-1,2,3",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -42,7 +48,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669348013969</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Trabalhos de POO - JAVA">
+      <created>1669348132377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669348132377</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -2,8 +2,7 @@ package Cine_IP;
 
 public class Filmes{
     private static boolean filme3D;
-    private static int Numfilme;
-    private static int Numsessoes;
+
 
     private static String[][] filmes = {
                                  {"Nome: Adão Negro - 3D","Dirigido por Jaume Collet-Serra","Dotado dos poderes onipotentes dos deuses, Teth Adam está preso por 5.000 anos, passando de homem, mito, lenda: Adão Negro. Agora livre, um vingativo Adão Negro exerce seu senso único de justiça, nascido da raiva, mais uma vez...","Gênero: Ação - Aventura.","Duração: 125 min."},
@@ -34,7 +33,7 @@ public class Filmes{
         }
     }
 
-    private static String[] sessoes = {"\nSessões disponível: \n", "Sala [01] - 18:30", "Sala [02] - 19:30", "Sala [03] - 20:30", "Sala [04] - 21:30","Sala [05] - 21:35"};
+    protected static String[] sessoes = {"\nSessões disponível: \n", "Sala [01] - 18:30", "Sala [02] - 19:30", "Sala [03] - 20:30", "Sala [04] - 21:30","Sala [05] - 21:35"};
 
 
     public static void getsessoes() {
@@ -43,15 +42,9 @@ public class Filmes{
         }
     }
 
-    public static void setNumsessoes(int Numsessoe) {
-        Numsessoes = Numsessoe;
-    }
 
-    public static String getsessao(){
-        return sessoes[Numsessoes];
-    }
 
-    public static void getfilme() {
+    public static void getfilme(int Numfilme) {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 if (i == 0)
@@ -60,7 +53,4 @@ public class Filmes{
         }
     }
 
-    public static void setNumfilme(int Numfilmes) {
-        Numfilme = Numfilmes;
-    }
 }
