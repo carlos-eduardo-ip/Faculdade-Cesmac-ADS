@@ -1,6 +1,6 @@
 package Cine_IP;
 
-public class ingressoVIP extends Ingresso implements Lanchonete {
+public class ingressoVIP extends Ingresso{
     private double ingressosVIP = 64;
     private int totalIngressos;
 

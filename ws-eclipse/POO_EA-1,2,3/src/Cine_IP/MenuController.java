@@ -44,7 +44,6 @@ public class MenuController {
 
         System.out.println("Seja Bem Vindo ao Cine IP!\n");
         System.out.print("Antes de tudo, vamos nos apresentar\n" + "Eu me chamo Bot IP e qual é o seu nome?  ");
-
         Nome = ler.nextLine();
 
 
