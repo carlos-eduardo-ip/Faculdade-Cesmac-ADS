@@ -16,7 +16,7 @@ public class Filmes{
         System.out.println("\nEsses são os filmes que estão em cartaz: \n");
         filme3D = tipoDoFilme;
 
-        if(filme3D == false) {
+        if(!filme3D) {
             for (int i = 0; i < 6; i++) {
                 for (int j = 3; j < 6; j++) {
                     if (i == 0)

@@ -17,6 +17,7 @@ public class MenuController {
         System.out.print("Selecione a opção Desejada pelo número: ");
     }
 
+
     public static void tela_CompraDeIngresso() {
         Ingresso cliente;
 
