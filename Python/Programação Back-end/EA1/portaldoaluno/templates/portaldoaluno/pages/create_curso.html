@@ -1,0 +1,15 @@
+{% extends "global/base.html" %}
+
+{% block title %}Cadastrar Curso | {% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h1>Cadastrar Curso</h1>
+    <form method="post">
+  
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="button-37">Cadastrar</button>
+    </form>
+</div>  
+{% endblock %}

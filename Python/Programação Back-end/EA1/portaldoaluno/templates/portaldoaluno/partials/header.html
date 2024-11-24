@@ -1,0 +1,15 @@
+<header class="main-header-container">
+  <div class="main-header container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url "portaldoaluno:home" %}" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:listar_alunos" %}" class="nav-link">Alunos Cadastrados</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:listar_cursos" %}" class="nav-link">Cursos Cadastrados</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:api_alunos" %}" class="nav-link">API Alunos</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:api_cursos" %}" class="nav-link">API Cursos</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:create_aluno" %}" class="nav-link">Cadastrar Aluno</a></li>
+        <li class="nav-item"><a href="{% url "portaldoaluno:create_curso" %}" class="nav-link">Cadastrar Curso</a></li>
+      </ul>
+    </header>
+  </div>
+</header>
