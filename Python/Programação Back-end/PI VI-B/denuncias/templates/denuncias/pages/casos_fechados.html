@@ -1,0 +1,19 @@
+{% extends "global/base.html" %}
+
+{% block title %}Casos em Aberto | {% endblock title %}
+
+{% block content %}
+    <ul>
+        {% for caso in object_list %}
+        <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ caso.titulo }}</h5>
+              <p class="card-text">{{ caso.descricao }}</p>
+              <a href="{% url 'denuncias:denuncia_detail' caso.id %}" class="btn btn-secondary">Verificar</a>
+            </div>
+        </div>
+        {% empty %}
+        <li>Sem casos fechados.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

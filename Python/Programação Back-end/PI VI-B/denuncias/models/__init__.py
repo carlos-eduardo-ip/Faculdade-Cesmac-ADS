@@ -1,0 +1,1 @@
+from .denuncia import Denuncia

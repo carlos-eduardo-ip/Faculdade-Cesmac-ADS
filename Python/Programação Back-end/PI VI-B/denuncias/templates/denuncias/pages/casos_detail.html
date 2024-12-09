@@ -1,0 +1,61 @@
+{% extends "global/base.html" %}
+
+{% block title %}Detalhe do Caso | {% endblock title %}
+
+{% block content %}
+<div class="container">
+
+  <div class="mb-4">
+    <h4>Status do Caso</h4>
+    <p>{{ object.status }}</p>
+    {% if is_agent %}
+      <form method="post" class="mt-3">
+        {% csrf_token %}
+        <label for="status">Alterar Status</label>
+        <select name="status" class="form-control mb-2">
+          <option value="Aberto" {% if object.status == "Aberto" %}selected{% endif %}>Aberto</option>
+          <option value="Em Tratamento" {% if object.status == "Em Tratamento" %}selected{% endif %}>Em Tratamento</option>
+          <option value="Fechado" {% if object.status == "Fechado" %}selected{% endif %}>Fechado</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Salvar Status</button>
+      </form>
+    {% endif %}
+  </div>
+
+  {% if is_coordinator %}
+    <form method="post" class="mb-4">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="grupo">Grupo</label>
+        <select name="grupo" class="form-control">
+          <option value="">Nenhum</option>
+          <option value="SI" {% if object.grupo == "SI" %}selected{% endif %}>Segurança da Informação</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Atualizar Grupo</button>
+    </form>
+  {% endif %}
+
+  <div class="mb-4">
+    <h4>Comentários</h4>
+    <div class="comment-history border p-3" style="background-color: #f9f9f9; border-radius: 5px;">
+      {% if object.comentarios %}
+        <pre>{{ object.comentarios }}</pre>
+      {% else %}
+        <p>Nenhum comentário ainda.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if object.status != "Fechado" %}
+  <form method="post" class="mb-4">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="comentario">Adicionar Comentário</label>
+      <textarea name="comentario" class="form-control" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-secondary">Enviar Comentário</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

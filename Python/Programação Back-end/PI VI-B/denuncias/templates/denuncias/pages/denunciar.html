@@ -1,0 +1,12 @@
+{% extends "global/base.html" %}
+
+{% block title %}Criar Denuncia | {% endblock title %}
+
+{% block content %}
+    <form method="post">
+  
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="button-37">Enviar</button>
+    </form>
+{% endblock %}

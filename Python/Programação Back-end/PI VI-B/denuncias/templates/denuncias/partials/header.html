@@ -1,0 +1,30 @@
+<header class="main-header-container">
+  <div class="main-header container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        {% if "Clientes" in user_groups %}
+
+          <li class="nav-item"><a href="{% url "denuncias:home" %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{% url "denuncias:denunciar" %}" class="nav-link">Denunciar</a></li>
+          <li class="nav-item"><a href="{% url "denuncias:todos_os_casos" %}" class="nav-link">Todos os Casos</a></li>
+
+        {% elif "Coordenadores" in user_groups or "Agentes" in user_groups %}
+
+          <li class="nav-item"><a href="{% url "denuncias:casos_em_aberto" %}" class="nav-link">Casos em Aberto</a></li>
+
+        {% endif %}
+        
+        <li class="nav-item"><a href="{% url "denuncias:casos_fechados" %}" class="nav-link">Casos Fechados</a></li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <form action="{% url 'denuncias:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="nav-link">Logout</button>
+          </form>
+        </li>
+      {% endif %}
+      </ul>
+    </header>
+  </div>
+</header>
