@@ -23,17 +23,30 @@
   </div>
 
   {% if is_coordinator %}
-    <form method="post" class="mb-4">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="grupo">Grupo</label>
-        <select name="grupo" class="form-control">
-          <option value="">Nenhum</option>
-          <option value="SI" {% if object.grupo == "SI" %}selected{% endif %}>Segurança da Informação</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Atualizar Grupo</button>
-    </form>
+  <form method="post" class="mb-4">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="grupo">Grupo</label>
+      <select name="grupo" class="form-control">
+        <option value="">Nenhum</option>
+        <option value="SI" {% if object.grupo == "SI" %}selected{% endif %}>Segurança da Informação</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="agente_si">Vincular a um Agente de SI</label>
+      <select name="agente_si" class="form-control">
+        <option value="">Nenhum</option>
+        {% for agente in agentes_si %}
+        <option value="{{ agente.id }}" {% if object.agente_si and object.agente_si.id == agente.id %}selected{% endif %}>
+          {{ agente.username }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
   {% endif %}
 
   <div class="mb-4">

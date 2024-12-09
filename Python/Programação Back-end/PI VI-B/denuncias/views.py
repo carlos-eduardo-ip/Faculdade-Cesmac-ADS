@@ -1,5 +1,6 @@
 from django.views.generic import CreateView, ListView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
 from .models import Denuncia
@@ -43,6 +44,16 @@ class CasosDetailView(LoginRequiredMixin, DetailView):
             caso.grupo = novo_grupo
             caso.save()
 
+        if "agente_si" in request.POST and "Coordenadores" in user_groups:
+            agente_si_id = request.POST.get("agente_si")
+            if agente_si_id:
+                try:
+                    agente_si = User.objects.get(id=agente_si_id, groups__name="Agentes")
+                    caso.agente_si = agente_si
+                    caso.save()
+                except User.DoesNotExist:
+                    pass
+
         return redirect('denuncias:denuncia_detail', pk=caso.pk)
 
     def get_context_data(self, **kwargs):
@@ -51,6 +62,11 @@ class CasosDetailView(LoginRequiredMixin, DetailView):
         context['is_coordinator'] = "Coordenadores" in user_groups
         context['is_agent'] = "Agentes" in user_groups
         context['is_user'] = "Agentes" in user_groups
+        
+        if "Coordenadores" in user_groups:
+            from django.contrib.auth.models import User
+            context['agentes_si'] = User.objects.filter(groups__name="Agentes")
+        
         return context
 
 class TodosOsCasosView(LoginRequiredMixin, ListView):
@@ -68,7 +84,8 @@ class CasosEmAbertoView(LoginRequiredMixin, ListView):
         if self.request.user.groups.filter(name="Coordenadores").exists():
             return Denuncia.objects.filter(status__in=["Aberto", "Em Tratamento"])
         elif self.request.user.groups.filter(name="Agentes").exists():
-            return Denuncia.objects.filter(status__in=["Aberto", "Em Tratamento"], grupo="SI")
+            return Denuncia.objects.filter(status__in=["Aberto", "Em Tratamento"], agente_si=self.request.user)
+
         return Denuncia.objects.none()
 
 class CasosFechadosView(LoginRequiredMixin, ListView):
